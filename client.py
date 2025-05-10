@@ -1,9 +1,9 @@
-from sqlalchemy.util import await_only
 
-from xypad_client.api.login import LoginApi
-from xypad_client.api.friend import FriendApi
-from xypad_client.api.message import MessageApi
-from xypad_client.api.user import UserApi
+from api.login import LoginApi
+from api.friend import FriendApi
+from api.message import MessageApi
+from api.user import UserApi
+from api.downloadpai import DownloadApi
 
 
 
@@ -15,7 +15,8 @@ class XYPadClient:
         self._friend_api = FriendApi(base_url, token)
         self._message_api = MessageApi(base_url, token)
         self._user_api = UserApi(base_url, token)
-        # self._chatroom_api = ChatroomMixin(base_url, wxid)
+        self._download_api = DownloadApi(base_url, token)
+
     def get_token(self,admin_key, day: int):
         '''获取token'''
         return self._login_api.get_token(admin_key, day)
@@ -75,5 +76,9 @@ class XYPadClient:
     async def update_head_img(self,  head_img_base64):
         """上传用户头像"""
         return await self._user_api.update_head_img(head_img_base64)
+
+    async def cdn_download(self, aeskey, file_type, file_url):
+        """cdn下载"""
+        return self._download_api.send_download( aeskey, file_type, file_url)
 
 

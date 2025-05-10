@@ -1,4 +1,4 @@
-from ..util.http_util import post_json,async_request
+from util.http_util import post_json,async_request
 from typing import List, Dict, Any, Optional
 
 

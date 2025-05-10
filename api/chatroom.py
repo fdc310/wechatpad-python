@@ -1,2 +1,2 @@
-from ..util.http_util import async_request
+from util.http_util import async_request
 

@@ -1,5 +1,5 @@
 
-from ..util.http_util import async_request
+from util.http_util import async_request
 
 class MessageApi:
     def __init__(self, base_url, token):

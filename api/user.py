@@ -1,4 +1,4 @@
-from ..util.http_util import post_json,async_request
+from util.http_util import post_json,async_request
 
 class UserApi:
     def __init__(self, base_url, token):
